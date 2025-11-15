@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <title>Soft Ride Transportation</title>
+
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* COLORS */
+        :root {
+            --primary-blue: #003e8a;
+            --deep-blue: #00285a;
+            --yellow: #f2c94c;
+            --light: #f4f6fb;
+            --white: #ffffff;
+        }
+
+        /* NAV */
+        nav {
+            background: var(--deep-blue);
+            padding: 18px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--yellow);
+            letter-spacing: 1px;
+        }
+
+
+        .logo {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--yellow);
+    letter-spacing: 1.5px;
+    display: flex;
+    align-items: center;
+}
+
+.logo-icon {
+    font-size: 2.2rem;
+    margin-right: 8px;
+    text-shadow: 0 0 4px rgba(0,0,0,0.3);
+}
+
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--yellow);
+        }
+
+        /* HERO */
+        header {
+            background: url('transport-bg.jpg') no-repeat center/cover;
+            height: 85vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+        }
+
+        .hero-content {
+            position: relative;
+            color: white;
+            max-width: 800px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .hero-content h1 {
+            font-size: 3.2rem;
+            color: var(--yellow);
+            font-weight: 900;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-top: 15px;
+        }
+
+        .hero-btn {
+            margin-top: 25px;
+            padding: 15px 35px;
+            background: var(--yellow);
+            color: var(--deep-blue);
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .hero-btn:hover {
+            background: #e0b644;
+        }
+
+        /* KEYFRAMES */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 80px 5%;
+        }
+
+        /* TITLES */
+        .section-title {
+            text-align: center;
+            font-size: 2.4rem;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        /* ABOUT */
+        .about-box {
+            max-width: 1000px;
+            background: white;
+            padding: 30px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* GALLERY */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+            transition: .3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.04);
+        }
+
+        /* BOOKING FORM */
+        .booking-box {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+        }
+
+        .booking-box input,
+        .booking-box select {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 2px solid var(--primary-blue);
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .booking-box button {
+            width: 100%;
+            padding: 15px;
+            background: var(--primary-blue);
+            color: white;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .booking-box button:hover {
+            background: var(--deep-blue);
+        }
+
+        /* TABLES */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        table th,
+        table td {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        table th {
+            background: var(--primary-blue);
+            color: white;
+            font-weight: 700;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--deep-blue);
+            color: white;
+            padding: 40px 5%;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: var(--yellow);
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        /* WHATSAPP */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #25d366;
+            padding: 15px;
+            border-radius: 50%;
+            color: white;
+            font-size: 30px;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div class="logo">
+            <span class="logo-icon">🚐</span> SoftRide
+        </div>
+
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#routes">Routes</a></li>
+            <li><a href="#pricing">Pricing</a>
+            </li>
+            <li><a href="#booking">Booking</a>
+            </li>
+            <li><a href="#contact">Contact</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <header>
+        <div class="hero-content">
+            <h1>Soft Ride Transportation</h1>
+            <p>Comfortable • Safe • Reliable
+                Interstate Transport.</p>
+            <a href="#booking"
+                class="hero-btn">Book a Trip</a>
+        </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <h2 class="section-title">About Soft Ride
+        </h2>
+        <p class="section-subtitle">Trusted
+            Interstate Journey</p>
+        <div class="about-box">
+            Soft Ride provides smooth and
+            dependable interstate transportation
+            across major Nigerian cities.
+            Our modern buses, trained drivers, and
+            excellent customer care ensure safe
+            travel for individuals, families, and
+            businesses.
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+        <h2 class="section-title">Gallery</h2>
+        <p class="section-subtitle">Our Vehicles &
+            Trips</p>
+        <div class="gallery">
+            <img src="ride.jpeg">
+            <img src="ride 2.jpeg">
+            <img src="ride 3.jpeg">
+            <img src="background  picture.jpeg">
+        </div>
+    </section>
+
+    <!-- ROUTES -->
+    <section id="routes">
+        <h2 class="section-title">Routes &
+            Schedule</h2>
+        <table>
+            <tr>
+                <th>Route</th>
+                <th>Departure Time</th>
+                <th>Days</th>
+            </tr>
+            <tr>
+                <td>Lagos → Abuja</td>
+                <td>7:00 AM</td>
+                <td>Daily</td>
+            </tr>
+            <tr>
+                <td>Lagos → Enugu</td>
+                <td>6:30 AM</td>
+                <td>Daily</td>
+            </tr>
+            <tr>
+                <td>Abuja → Port Harcourt</td>
+                <td>7:45 AM</td>
+                <td>Daily</td>
+            </tr>
+            <tr>
+                <td>Enugu → Lagos</td>
+                <td>5:00 AM</td>
+                <td>Daily</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing">
+        <h2 class="section-title">Pricing</h2>
+        <table>
+            <tr>
+                <th>Route</th>
+                <th>Fare (₦)</th>
+            </tr>
+            <tr>
+                <td>Lagos → Abuja</td>
+                <td>₦22,000</td>
+            </tr>
+            <tr>
+                <td>Lagos → Enugu</td>
+                <td>₦17,000</td>
+            </tr>
+            <tr>
+                <td>Abuja → Port Harcourt</td>
+                <td>₦20,000</td>
+            </tr>
+            <tr>
+                <td>Enugu → Lagos</td>
+                <td>₦18,000</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- BOOKING FORM -->
+    <section id="booking">
+        <h2 class="section-title">Book A Trip</h2>
+        <div class="booking-box">
+            <input type="text"
+                placeholder="Full Name">
+            <input type="text"
+                placeholder="Phone Number">
+            <select>
+                <option>Select Route</option>
+                <option>Abuja → Lagos</option>
+                <option>Lagos → Enugu</option>
+                <option>Abuja → Port Harcourt
+                </option>
+            </select>
+            <input type="date">
+            <button>Submit Booking</button>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="about-box">
+            <p><strong>📞 Phone:</strong> +234 8138463039</p>
+            <p><strong>📧 Email:</strong>
+                softride588@gmail.com</p>
+            <p><strong>📍 Terminals:</strong>
+                Nationwide Major Cities</p>
+        </div>
+    </section>
+
+    <!-- WHATSAPP -->
+    <a href="https://wa.me/2348105559012"
+        class="whatsapp-btn">💬</a>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 Soft Ride Transportation.
+            All Rights Reserved.</p>
+        <p>Back to Main Website: <a
+                href="index.html">Blessed Egwu Oyo
+                Enterprise</a></p>
+    </footer>
+
+</body>
+
+</html>

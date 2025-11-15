@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0" />
+    <title>The Blessed Egwu Oyo Enterprise</title>
+
+    <style>
+        /* -------------------------- RESET ---------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* -------------------------- BRAND COLORS ---------------------------- */
+        :root {
+            --royal-blue: #003e8a;
+            --navy: #00285a;
+            --gold: #f2c94c;
+            --light-bg: #f5f6fa;
+        }
+
+        /* -------------------------- NAVIGATION ---------------------------- */
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: var(--navy);
+            padding: 12px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* BIGGER, BOLDER LOGO */
+        .logo-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--gold);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .logo-text {
+            margin-left: 12px;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 6px black;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+
+        /* -------------------------- HERO ---------------------------- */
+        header {
+            background: url('your-background.jpg') no-repeat center center/cover;
+            height: 95vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Dark overlay */
+        header::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+        }
+
+        .header-content {
+            position: relative;
+            color: white;
+            padding: 20px;
+            max-width: 700px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header-content h1 {
+            font-size: 3.5rem;
+            color: var(--gold);
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .header-content p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+
+        .header-btn {
+            background: var(--gold);
+            padding: 16px 35px;
+            color: var(--navy);
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .header-btn:hover {
+            background: #e0b644;
+        }
+
+        /* -------------------------- SECTIONS ---------------------------- */
+        section {
+            padding: 80px 5%;
+            background: var(--light-bg);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            color: var(--royal-blue);
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #555;
+            margin-bottom: 40px;
+            font-size: 1.2rem;
+        }
+
+        /* -------------------------- GALLERY ---------------------------- */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .gallery-container img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+        }
+
+        .gallery-container img:hover {
+            transform: scale(1.05);
+        }
+
+        /* -------------------------- SERVICES ---------------------------- */
+        .services-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .service-box {
+            background: white;
+            width: 300px;
+            padding: 25px;
+            border-radius: 10px;
+            border-top: 6px solid var(--gold);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+            transition: 0.3s;
+        }
+
+        .service-box:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        .service-box h3 {
+            color: var(--royal-blue);
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+
+        /* -------------------------- CONTACT ---------------------------- */
+        .contact-container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .contact-container input,
+        .contact-container textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 3px solid var(--royal-blue);
+            border-radius: 8px;
+            font-size: 1rem;
+            background: white;
+        }
+
+        .contact-container button {
+            background: var(--royal-blue);
+            color: white;
+            padding: 16px 35px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .contact-container button:hover {
+            background: var(--navy);
+        }
+
+        /* -------------------------- WHATSAPP BUTTON ---------------------------- */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #25d366;
+            padding: 16px;
+            border-radius: 50%;
+            color: white;
+            font-size: 32px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 900;
+            text-decoration: none;
+        }
+
+        /* -------------------------- FOOTER ---------------------------- */
+        footer {
+            background: var(--navy);
+            color: white;
+            padding: 40px 5%;
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--gold);
+        }
+
+        /* -------------------------- RESPONSIVE ---------------------------- */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+                margin-top: 15px;
+            }
+
+            nav ul li {
+                margin: 12px 0;
+            }
+
+            .logo-img {
+                width: 70px;
+                height: 70px;
+            }
+
+            header h1 {
+                font-size: 2.4rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- -------------------------- NAVIGATION ---------------------------- -->
+    <nav>
+        <div
+            style="display:flex; align-items:center;">
+            <img src="3.png" class="logo-img"
+                alt="Company Logo" />
+            <div class="logo-text">The Blessed
+                Egwu Oyo Enterprise</div>
+        </div>
+
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Gallery</a>
+            </li>
+            <li><a href="#services">Services</a>
+            </li>
+            <li><a href="#contact">Contact</a>
+            </li>
+            <a href="soft-ride.html" ...>Soft Ride</a>
+
+        </ul>
+    </nav>
+
+    <!-- -------------------------- HERO ---------------------------- -->
+    <header>
+        <div class="header-content">
+            <h1>Premium Palm Oil Meal Processing
+            </h1>
+            <p>Your trusted partner for Palm
+                Kernel Cake (PKC), palm oil meal,
+                and agro-industrial products
+                nationwide.</p>
+            <a class="header-btn"
+                href="#contact">Contact Us</a>
+        </div>
+    </header>
+
+    <!-- -------------------------- ABOUT ---------------------------- -->
+    <section id="about"
+        style="background:var(--light-bg); padding:100px 5%;">
+        <h2 class="section-title">About Us</h2>
+        <p class="section-subtitle">Quality •
+            Reliability • Professional Service</p>
+    
+        <div
+            style="max-width:1000px; margin:auto; font-size:1.15rem; color:#444; line-height:1.8;">
+    
+            <p
+                style="margin-bottom:25px; text-align:justify;">
+                <strong>The Blessed Egwu Oyo
+                    Enterprise</strong> is a
+                recognized leader in palm oil meal
+                processing
+                and agro-industrial supply in Nigeria
+                and across West Africa. With years of
+                hands-on industry experience,
+                our company has grown into one of the
+                most trusted suppliers of
+                <strong>Palm Kernel Cake
+                    (PKC)</strong>, <strong>palm oil
+                    meal</strong>, and other essential
+                agricultural
+                by-products used by feed mills,
+                manufacturers, livestock farms, and
+                industrial processors.
+            </p>
+    
+            <p
+                style="margin-bottom:25px; text-align:justify;">
+                Our operations are supported by modern
+                extraction and drying systems, clean
+                processing environments,
+                and a dedicated workforce committed to
+                delivering products that meet national
+                and international quality standards.
+                We maintain strong relationships with
+                farmers, processors, transporters, and
+                exporters, ensuring reliable supply
+                and consistent product quality
+                throughout the year.
+            </p>
+    
+            <!-- Mission & Vision -->
+            <div style="margin:40px 0;">
+                <h3
+                    style="color:var(--royal-blue); font-size:1.6rem; margin-bottom:10px;">
+                    Our Mission</h3>
+                <p style="text-align:justify;">
+                    To provide high-quality palm oil
+                    by-products and agro-raw materials
+                    through modern processing
+                    technologies,
+                    ensuring consistent value,
+                    superior quality, and reliable
+                    supply to our customers locally
+                    and internationally.
+                </p>
+            </div>
+    
+            <div style="margin:40px 0;">
+                <h3
+                    style="color:var(--royal-blue); font-size:1.6rem; margin-bottom:10px;">
+                    Our Vision</h3>
+                <p style="text-align:justify;">
+                    To become the most trusted and
+                    preferred provider of palm oil
+                    meal and agro-industrial materials
+                    in Africa,
+                    setting industry standards through
+                    innovation, integrity, and
+                    operational excellence.
+                </p>
+            </div>
+    
+            <!-- Core Values -->
+            <div style="margin:40px 0;">
+                <h3
+                    style="color:var(--royal-blue); font-size:1.6rem; margin-bottom:10px;">
+                    Our Core Values</h3>
+                <ul
+                    style="list-style:circle; margin-left:25px; color:#444; line-height:1.8;">
+                    <li><strong>Integrity:</strong> We
+                        operate transparently and
+                        ethically.</li>
+                    <li><strong>Quality
+                            Commitment:</strong> We
+                        ensure superior product
+                        standards through continuous
+                        testing and inspection.</li>
+                    <li><strong>Innovation:</strong>
+                        We adopt modern technologies
+                        to enhance production
+                        efficiency.</li>
+                    <li><strong>Customer
+                            Focus:</strong> We
+                        prioritize customer
+                        satisfaction and long-term
+                        partnerships.</li>
+                    <li><strong>Reliability:</strong>
+                        Timely deliveries and
+                        consistent supply form the
+                        backbone of our operations.
+                    </li>
+                </ul>
+            </div>
+    
+            <!-- Why Choose Us -->
+            <div style="margin:40px 0;">
+                <h3
+                    style="color:var(--royal-blue); font-size:1.6rem; margin-bottom:10px;">
+                    Why Choose Us?</h3>
+                <ul
+                    style="list-style:circle; margin-left:25px; color:#444; line-height:1.8;">
+                    <li><strong>Premium-Grade
+                            Products:</strong> Our PKC
+                        and palm oil meal undergo
+                        strict quality control.</li>
+                    <li><strong>Modern
+                            Technology:</strong> We
+                        use efficient processing and
+                        drying equipment.</li>
+                    <li><strong>Experienced
+                            Team:</strong>
+                        Professionals with deep
+                        industry knowledge oversee
+                        production.</li>
+                    <li><strong>Reliable Supply
+                            Chain:</strong> We
+                        maintain stable year-round
+                        availability.</li>
+                    <li><strong>Competitive
+                            Pricing:</strong> High
+                        value at fair and transparent
+                        prices.</li>
+                    <li><strong>Nationwide
+                            Delivery:</strong> Fast
+                        and secure logistics across
+                        Nigeria and beyond.</li>
+                </ul>
+            </div>
+    
+            <!-- Industrial Impact -->
+            <div style="margin:40px 0;">
+                <h3
+                    style="color:var(--royal-blue); font-size:1.6rem; margin-bottom:10px;">
+                    Our Industry Impact</h3>
+                <p style="text-align:justify;">
+                    Over the years, The Blessed Egwu
+                    Oyo Enterprise has contributed
+                    significantly to the livestock and
+                    agricultural industries by
+                    ensuring steady supply of
+                    nutritional palm by-products used
+                    in feed formulation.
+                    Our products support poultry
+                    farmers, feed manufacturers,
+                    fishery farms, cattle ranchers,
+                    and
+                    industrial processors who rely on
+                    consistency and quality to run
+                    their operations effectively.
+                </p>
+            </div>
+    
+        </div>
+    </section>
+    
+
+    <!-- -------------------------- IMAGE GALLERY ---------------------------- -->
+    <section id="gallery">
+        <h2 class="section-title">Image Gallery
+        </h2>
+        <p class="section-subtitle">Our
+            facilities, products & operations</p>
+
+        <div class="gallery-container">
+            <img src="download 3.jpeg"
+                alt="Gallery Image 1">
+            <img src="download 4.jpeg"
+                alt="Gallery Image 2">
+            <img src="download 5.jpeg"
+                alt="Gallery Image 3">
+            <img src="download.jpeg"
+                alt="Gallery Image 4">
+            <img src="images 1.jpeg"
+                alt="Gallery Image 5">
+            <img src="images 2.jpeg"
+                alt="Gallery Image 6">
+            <img src="11.jpeg" alt="Gallery Image 7">
+            <img src="22.jpeg" alt="Gallery Image 8">
+            <img src="222.jpeg" alt="Gallery Image 9">
+            <img src="111.jpeg" alt="Gallery Image 10">
+            <img src="1111.jpeg" alt="Gallery Image 11">
+            <img src="1313.webp" alt="Gallery Image 12">
+            <img src="4444.jpeg" alt="Gallery Image 13">
+            <img src="5555.jpeg" alt="Gallery Image 14">
+            <img src="q.jpg" alt="Gallery Image 15">
+            <img src="qq.jpeg" alt="Gallery Image 16">
+            <img src="w.webp" alt="Gallery Image 7">
+            <img src="ww.jpeg" alt="Gallery Image 8">
+            
+        </div>
+    </section>
+
+    <!-- -------------------------- SERVICES ---------------------------- -->
+    <section id="services">
+        <h2 class="section-title">Our Services
+        </h2>
+        <p class="section-subtitle">
+            Industry-standard production and
+            supply</p>
+
+        <div class="services-container">
+            <div class="service-box">
+                <h3>Palm Oil Meal Processing</h3>
+                <p>High-quality palm oil meal
+                    produced with advanced
+                    extraction technology.</p>
+            </div>
+
+            <div class="service-box">
+                <h3>PKC Distribution</h3>
+                <p>Bulk supply of palm kernel cake
+                    for feed mills and industries.
+                </p>
+            </div>
+
+            <div class="service-box">
+                <h3>Agro Packaging</h3>
+                <p>Customized packaging solutions
+                    for wholesalers and exporters.
+                </p>
+            </div>
+
+            <div class="service-box">
+                <h3>Bulk Orders</h3>
+                <p>Large-scale processing and
+                    continuous supply for
+                    industrial clients.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- -------------------------- CONTACT ---------------------------- -->
+    <section id="contact"
+        style="background:var(--light-bg); padding:100px 5%;">
+        <h2 class="section-title">Contact Us</h2>
+        <p class="section-subtitle">We respond quickly
+            • We're here to assist you</p>
+    
+        <div style="max-width:900px; margin:auto;">
+    
+            <!-- Customer Service Info -->
+            <div
+                style="text-align:center; margin-bottom:40px; font-size:1.15rem; color:#333;">
+                <p style="margin-bottom:10px;">
+                    📞 <strong>Customer Service
+                        Phone:</strong> +234 08138463039
+                </p>
+                <p>
+                    ✉️ <strong>Email Support:</strong>
+                    support@blessedegwuoyo@gmail.com
+                </p>
+            </div>
+    
+            <!-- Contact Form -->
+            <div class="contact-container"
+                style="margin-top:20px;">
+                <input type="text"
+                    placeholder="Your Name">
+                <input type="email"
+                    placeholder="Email Address">
+                <input type="text"
+                    placeholder="Phone Number">
+                <textarea rows="5"
+                    placeholder="Your Message"></textarea>
+                <button>Send Message</button>
+            </div>
+    
+        </div>
+    </section>
+    
+
+    <!-- -------------------------- WHATSAPP BUTTON ---------------------------- -->
+    <a href="https://wa.me/2340000000000"
+        target="_blank"
+        class="whatsapp-btn">💬</a>
+
+    <!-- -------------------------- FOOTER ---------------------------- -->
+    <footer
+        style="background:#f9f9f9; padding:50px 5%; text-align:center; color:#333;">
+    
+        <!-- Company Info -->
+        <h3
+            style="color:var(--royal-blue); margin-bottom:10px;">
+            The Blessed Egwu Oyo Enterprise</h3>
+        <p style="margin-bottom:5px;">Premium Palm Oil
+            Meal & Agro-Industrial Supply</p>
+    
+        <!-- Contact Info -->
+        <p style="margin-bottom:5px;">
+            📞 Customer Service: +234 8138463039
+        </p>
+        <p style="margin-bottom:20px;">
+            ✉️ Email:
+            support@blessedegwuoyo@gmail.com
+        </p>
+    
+        <!-- Partner Link -->
+        <p style="margin-bottom:20px;">
+            Our Transport Partner:
+            <a href="soft-ride.html" target="_blank"
+                style="color:var(--royal-blue); font-weight:bold; text-decoration:underline;">
+                Soft Ride
+            </a>
+        </p>
+    
+        <!-- Copyright -->
+        <p style="font-size:0.9rem; color:#0a0a0a;">
+            &copy; 2025 The Blessed Egwu Oyo
+            Enterprise. All rights reserved.
+        </p>
+    </footer>
+    
+
+</body>
+
+</html>
