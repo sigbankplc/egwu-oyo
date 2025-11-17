@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <title>Soft Ride Transportation</title>
+
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* COLORS */
+        :root {
+            --primary-blue: #003e8a;
+            --deep-blue: #00285a;
+            --yellow: #f2c94c;
+            --light: #f4f6fb;
+            --white: #ffffff;
+        }
+
+        /* NAV */
+        nav {
+            background: var(--deep-blue);
+            padding: 18px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--yellow);
+            letter-spacing: 1px;
+        }
+
+
+        .logo {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--yellow);
+    letter-spacing: 1.5px;
+    display: flex;
+    align-items: center;
+}
+
+.logo-icon {
+    font-size: 2.2rem;
+    margin-right: 8px;
+    text-shadow: 0 0 4px rgba(0,0,0,0.3);
+}
+
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--yellow);
+        }
+
+        /* HERO */
+        header {
+            background: url('transport-bg.jpg') no-repeat center/cover;
+            height: 85vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+        }
+
+        .hero-content {
+            position: relative;
+            color: white;
+            max-width: 800px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .hero-content h1 {
+            font-size: 3.2rem;
+            color: var(--yellow);
+            font-weight: 900;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-top: 15px;
+        }
+
+        .hero-btn {
+            margin-top: 25px;
+            padding: 15px 35px;
+            background: var(--yellow);
+            color: var(--deep-blue);
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .hero-btn:hover {
+            background: #e0b644;
+        }
+
+        /* KEYFRAMES */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 80px 5%;
+        }
+
+        /* TITLES */
+        .section-title {
+            text-align: center;
+            font-size: 2.4rem;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+
+
+        section {
+    padding: 70px 10%;
+    background: #f8f9fc;
+}
+
+.section-title {
+    font-size: 34px;
+    font-weight: 800;
+    color: #222;
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.about-box {
+    max-width: 950px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 35px 40px;
+    border-radius: 14px;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+    line-height: 1.9;
+    font-size: 17px;
+    color: #333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 35px rgba(0,0,0,0.15);
+}
+
+.about-box ul {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.about-box li {
+    margin-bottom: 12px;
+}
+
+
+        /* ABOUT */
+        .about-box {
+            max-width: 1000px;
+            background: white;
+            padding: 30px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        section {
+    padding: 60px 10%;
+    background: #fdfdfd;
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.about-box {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 30px 35px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    line-height: 1.8;
+    font-size: 16px;
+    color: #333;
+}
+
+.about-box ul {
+    padding-left: 20px;
+}
+
+.about-box li {
+    margin-bottom: 10px;
+}
+
+
+        /* GALLERY */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+            transition: .3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.04);
+        }
+
+        /* BOOKING FORM */
+        .booking-box {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+        }
+
+        .booking-box input,
+        .booking-box select {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 2px solid var(--primary-blue);
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .booking-box button {
+            width: 100%;
+            padding: 15px;
+            background: var(--primary-blue);
+            color: white;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .booking-box button:hover {
+            background: var(--deep-blue);
+        }
+
+        /* TABLES */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        table th,
+        table td {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        table th {
+            background: var(--primary-blue);
+            color: white;
+            font-weight: 700;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--deep-blue);
+            color: white;
+            padding: 40px 5%;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: var(--yellow);
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        /* WHATSAPP */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #25d366;
+            padding: 15px;
+            border-radius: 50%;
+            color: white;
+            font-size: 30px;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div class="logo">
+            <span class="logo-icon">🚐</span> SoftRide
+        </div>
+
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#routes">Routes</a></li>
+            <li><a href="#pricing">Pricing</a>
+            </li>
+            <li><a href="#booking">Booking</a>
+            </li>
+            <li><a href="#contact">Contact</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <header>
+        <div class="hero-content">
+            <h1>Soft Ride Transportation</h1>
+            <p>Comfortable • Safe • Reliable
+                Interstate Transport.</p>
+            <a href="#booking"
+                class="hero-btn">Book a Trip</a>
+        </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <h2 class="section-title">About Soft Ride</h2>
+        <p class="section-subtitle">Trusted Interstate
+            Journey</p>
+    
+        <div class="about-box">
+            Soft Ride is a leading interstate
+            transportation company dedicated to
+            delivering smooth,
+            safe, and dependable travel experiences
+            across major Nigerian cities. With a
+            modern fleet of
+            well-maintained buses, highly trained
+            drivers, and a strong focus on customer
+            satisfaction,
+            we ensure enjoyable and stress-free
+            journeys for individuals, families, and
+            corporate clients.
+            <br><br>
+            Our services are built on reliability,
+            comfort, and professionalism—making us a
+            preferred choice
+            for passengers seeking quality travel at
+            affordable rates.
+        </div>
+    </section>
+    
+    <section id="executive-summary">
+        <h2 class="section-title">Executive Summary
+        </h2>
+        <div class="about-box">
+            Soft Ride Transport Services is a
+            customer-focused interstate travel company
+            committed to redefining
+            road transportation in Nigeria. Our
+            operations are backed by modern
+            technology, professional drivers,
+            and a commitment to safety and
+            punctuality. We aim to make interstate
+            mobility more seamless, enjoyable,
+            and accessible for everyone.
+            It outlines the company's launch plans in Abuja with an initial fleet of 25 Vehicles and emphasizes the brand's focus on safety, comfort, and affordability.The section highlights the company's unique position between informal operators and Luxury coach services and specifies the funding requirement of #250m-#300m to support startup and early growth. 
+        </div>
+    </section>
+    
+    <section id="company-overview">
+        <h2 class="section-title">Company Overview
+        </h2>
+        <div class="about-box">
+            <strong>Business Name:</strong> Soft Ride
+            Transport Services <br>
+            <strong>Industry:</strong> Transportation
+            & Logistics <br>
+            <strong>Services:</strong> Interstate
+            passenger transport, charter services,
+            logistics support,
+            corporate travel solutions <br><br>
+    
+            <strong>Head Office Address:</strong><br>
+            Abuja FCT,<br>
+            Airport Road, Lugbe, Abuja,
+            Nigeria.<br><br>
+    
+            Soft Ride operates across multiple states,
+            connecting major cities including
+            Abuja,
+            Plateu, Nasarawa, Kaduna,Benue,
+            Niger, and Kogi State. We continue to expand
+            our network
+            to improve accessibility and convenience
+            nationwide.
+        </div>
+    </section>
+    
+    <section id="vision">
+        <h2 class="section-title">Our Vision</h2>
+        <div class="about-box">
+            To become Nigeria’s most trusted and
+            preferred interstate transportation
+            company, recognized
+            for safety, reliability, innovation, and
+            unmatched customer satisfaction.
+        </div>
+    </section>
+    
+    <section id="mission">
+        <h2 class="section-title">Our Mission</h2>
+        <div class="about-box">
+            <ul>
+                <li>Provide safe, reliable, and
+                    comfortable interstate travel
+                    across Nigeria.</li>
+                <li>Maintain a modern fleet equipped
+                    with top-tier safety and comfort
+                    features.</li>
+                <li>Deliver exceptional customer
+                    service through well-trained and
+                    dedicated professionals.</li>
+                <li>Adopt technology that enhances
+                    booking convenience and passenger
+                    experience.</li>
+                <li>Support the growth of Nigeria’s
+                    transportation sector with
+                    world-class standards.</li>
+            </ul>
+        </div>
+    </section>
+
+
+    <section id="market-opportunity">
+        <h2 class="section-title">Market Opportunity
+        </h2>
+        <div class="about-box">
+            Nigeria’s transportation industry serves
+            over 200 million people and remains one of
+            the most essential
+            sectors for mobility. With increasing road
+            travel, limited airline affordability, and
+            expanding urban-to-urban
+            migration, demand for safe, modern, and
+            reliable interstate transportation
+            continues to rise.
+            <br><br>
+            Soft Ride is strategically positioned to
+            capture this growing demand by offering a
+            superior travel experience
+            supported by technology, comfort, and
+            exceptional customer service.
+        </div>
+    </section>
+    
+    <section id="target-customers">
+        <h2 class="section-title">Target Customers
+        </h2>
+        <div class="about-box">
+            Our services are designed for:
+            <ul>
+                <li><strong>Business
+                        professionals</strong>
+                    traveling between major economic
+                    hubs.</li>
+                <li><strong>Students</strong>
+                    commuting to institutions across
+                    different states.</li>
+                <li><strong>Families and
+                        individuals</strong> seeking
+                    safe and comfortable travel.</li>
+                <li><strong>Corporate
+                        organizations</strong>
+                    requiring staff shuttle or charter
+                    services.</li>
+                <li><strong>Logistics clients</strong>
+                    needing interstate parcel
+                    movement.</li>
+            </ul>
+            These segments make up over 70% of the
+            interstate mobility market in Nigeria.
+        </div>
+    </section>
+    
+    <section id="competitive-advantage">
+        <h2 class="section-title">Competitive
+            Advantage</h2>
+        <div class="about-box">
+            Soft Ride stands out due to:
+            <ul>
+                <li><strong>Modern and well-maintained
+                        fleet</strong> with enhanced
+                    safety features.</li>
+                <li><strong>Trained and certified
+                        drivers</strong> with strong
+                    safety compliance.</li>
+                <li><strong>Digital booking
+                        system</strong> for convenient
+                    and fast reservations.</li>
+                <li><strong>Excellent customer
+                        care</strong> with responsive
+                    support teams.</li>
+                <li><strong>Affordable
+                        pricing</strong> while
+                    maintaining premium comfort.</li>
+            </ul>
+            These advantages position Soft Ride as a
+            premium yet accessible mobility provider.
+        </div>
+    </section>
+    
+    <section id="business-model">
+        <h2 class="section-title">Business Model &
+            Revenue Sources</h2>
+        <div class="about-box">
+            Soft Ride operates a hybrid travel and
+            logistics business model designed for
+            sustainability and scalability.
+            <br><br>
+            <strong>Revenue is generated
+                through:</strong>
+            <ul>
+                <li>Interstate passenger
+                    transportation tickets</li>
+                <li>Corporate travel and staff shuttle
+                    contracts</li>
+                <li>Bus charter services for groups,
+                    events, and organizations</li>
+                <li>Logistics and parcel transport
+                    services</li>
+                <li>Value-added services (onboard
+                    WiFi, priority boarding, premium
+                    seating)</li>
+            </ul>
+        </div>
+    </section>
+    
+    <section id="pricing-strategy">
+        <h2 class="section-title">Pricing Strategy
+        </h2>
+        <div class="about-box">
+            Our pricing is competitive while
+            maintaining high-quality service
+            standards.
+            Prices are determined by:
+            <ul>
+                <li>Distance and route demand</li>
+                <li>Vehicle class (Standard, Premium,
+                    Executive)</li>
+                <li>Seasonal changes and peak travel
+                    periods</li>
+            </ul>
+            We blend affordability with comfort,
+            making Soft Ride accessible to both
+            premium and budget-conscious travelers.
+        </div>
+    </section>
+    
+    <section id="operations-plan">
+        <h2 class="section-title">Operations Plan</h2>
+        <div class="about-box">
+            Soft Ride’s operations are built on
+            efficiency, safety, and professionalism.
+            <ul>
+                <li><strong>Daily operations:</strong>
+                    Multiple scheduled trips across
+                    major cities.</li>
+                <li><strong>Maintenance:</strong>
+                    Routine servicing of vehicles for
+                    safety and comfort.</li>
+                <li><strong>Technology:</strong>
+                    Digital booking, passenger
+                    tracking, and automated ticketing.
+                </li>
+                <li><strong>Staffing:</strong>
+                     30 Professional drivers, maintenance
+                    teams, dispatch officers, and
+                    10 customer support.</li>
+                <li><strong>Customer
+                        Engagement:</strong> 24/7
+                    support and online assistance.
+                </li>
+            </ul>
+        </div>
+    </section>
+    
+    <section id="financial-projection">
+        <h2 class="section-title">Financial Projection
+        </h2>
+        <div class="about-box">
+            Based on current expansion plans:
+            <ul>
+                <li><strong>Year 1 Revenue
+                        Projection:</strong> ₦150
+                    million – ₦350 million</li>
+                <li><strong>Year 2 Revenue
+                        Projection:</strong> ₦400
+                    million – ₦700 million</li>
+                <li><strong>Year 3 Revenue
+                        Projection:</strong> ₦800
+                    million – ₦1.2 billion</li>
+            </ul>
+            These projections assume fleet expansion,
+            improved route coverage, and increased
+            digital adoption.
+        </div>
+    </section>
+    
+    <section id="funding-requirements">
+        <h2 class="section-title">Funding Requirements
+        </h2>
+        <div class="about-box">
+            Soft Ride seeks funding to:
+            <ul>
+                <li>Expand the fleet with modern buses
+                </li>
+                <li>Upgrade terminals and service
+                    facilities</li>
+                <li>Enhance the digital booking
+                    platform</li>
+                <li>Increase marketing and brand
+                    awareness</li>
+                <li>Support operational growth across
+                    new routes</li>
+            </ul>
+            <strong>Estimated funding need: ₦250
+                million – ₦500 million</strong>
+            depending on expansion phase.
+        </div>
+    </section>
+    
+    <section id="growth-strategy">
+        <h2 class="section-title">Growth Strategy</h2>
+        <div class="about-box">
+            Our long-term strategy is centered on:
+            <ul>
+                <li>Expanding routes into underserved
+                    states and cities</li>
+                <li>Increasing fleet size with premium
+                    buses</li>
+                <li>Launching mobile app for seamless
+                    booking and ride tracking</li>
+                <li>Introducing subscription-based
+                    travel packages</li>
+                <li>Scaling logistics operations to
+                    cover more states</li>
+            </ul>
+        </div>
+    </section>
+    
+    <section id="risk-mitigation">
+        <h2 class="section-title">Risks & Mitigation
+        </h2>
+        <div class="about-box">
+            <ul>
+                <li><strong>Operational
+                        Risks:</strong> Mitigated
+                    through strict vehicle maintenance
+                    routines.</li>
+                <li><strong>Road Insecurity:</strong>
+                    Routes monitored and coordinated
+                    with security agencies.</li>
+                <li><strong>Rising fuel
+                        prices:</strong> Mitigated
+                    with fuel-efficient buses and
+                    optimized scheduling.</li>
+                <li><strong>Competition:</strong>
+                    Differentiation through comfort,
+                    digital convenience, and
+                    affordability.</li>
+            </ul>
+        </div>
+    </section>
+    
+    <section id="management">
+        <h2 class="section-title">Management Team</h2>
+        <div class="about-box">
+            Soft Ride is managed by a team of
+            experienced professionals in
+            transportation, logistics, safety
+            compliance,
+            fleet management, technology, and customer
+            service.
+            <br><br>
+            Our leadership is committed to ensuring
+            operational excellence and sustained
+            business growth.
+        </div>
+    </section>
+    
+    <section id="conclusion">
+        <h2 class="section-title">Conclusion</h2>
+        <div class="about-box">
+            Soft Ride is redefining interstate travel
+            in Nigeria by offering safe, modern, and
+            reliable transportation.
+            With increasing demand for better travel
+            experiences, advanced fleet systems, and
+            customer-first operations,
+            Soft Ride is positioned for long-term
+            growth, profitability, and nationwide
+            expansion.
+        </div>
+    </section>
+
+
+
+    <!-- GALLERY -->
+    <section id="gallery">
+        <h2 class="section-title">Gallery</h2>
+        <p class="section-subtitle">Our Vehicles &
+            Trips</p>
+        <div class="gallery">
+            <img src="ride.jpeg">
+            <img src="ride 2.jpeg">
+            <img src="ride 3.jpeg">
+            <img src="background  picture.jpeg">
+        </div>
+    </section>
+
+    <!-- ROUTES -->
+    <section id="routes">
+        <h2 class="section-title">Routes &
+            Schedule</h2>
+        <table>
+            <tr>
+                <th>Route</th>
+                <th>Departure Time</th>
+                <th>Days</th>
+            </tr>
+            <tr>
+                <td>Abuja → jos (Plateau State)</td>
+                <td>7:00 AM</td>
+                <td>Daily</td>
+            </tr>
+            <tr>
+                <td>Abuja → Lafia (Nasarawa State)</td>
+                <td>6:30 AM</td>
+                <td>Daily</td>
+            </tr>
+            <tr>
+                <td>Abuja → Kaduna (Kaduna State)</td>
+                <td>7:45 AM</td>
+                <td>Daily</td>
+            </tr>
+             
+            <tr>
+                <td>Abuja → Minna (Niger State)</td>
+                <td>7:45 AM</td>
+                <td>Daily</td>
+            </tr>
+
+            <tr>
+                <td>Abuja → Lokoja (Kogi State)</td>
+                <td>7:45 AM</td>
+                <td>Daily</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- PRICING -->
+    
+
+    <!-- BOOKING FORM -->
+    <section id="booking">
+        <h2 class="section-title">Book A Trip</h2>
+        <div class="booking-box">
+            <input type="text"
+                placeholder="Full Name">
+            <input type="text"
+                placeholder="Phone Number">
+            <select>
+                <option>Select Route</option>
+                <option>Abuja → Lagos</option>
+                <option>Lagos → Enugu</option>
+                <option>Abuja → Port Harcourt
+                </option>
+            </select>
+            <input type="date">
+            <button>Submit Booking</button>  
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="about-box">
+            <p><strong>📞 Phone:</strong> +234 8138463039</p>
+            <p><strong>📧 Email:</strong>
+                softride588@gmail.com</p>
+            <p><strong>📍 Terminals:</strong>
+                Nationwide Major Cities</p>
+        </div>
+    </section>
+
+    <!-- WHATSAPP -->
+    <a href="https://wa.me/2348105559012"
+        class="whatsapp-btn">💬</a>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 Soft Ride Transportation.
+            All Rights Reserved.</p>
+        <p>Back to Main Website: <a
+                href="index.html">Blessed Egwu Oyo
+                Enterprise</a></p>
+    </footer>
+
+</body>
+
+</html>

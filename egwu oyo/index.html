@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0" />
+    <title>The Blessed Egwu Oyo Enterprise</title>
+
+    <style>
+        /* -------------------------- RESET ---------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* -------------------------- BRAND COLORS ---------------------------- */
+        :root {
+            --royal-blue: #003e8a;
+            --navy: #00285a;
+            --gold: #f2c94c;
+            --light-bg: #f5f6fa;
+        }
+
+        /* -------------------------- NAVIGATION ---------------------------- */
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: var(--navy);
+            padding: 12px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* BIGGER, BOLDER LOGO */
+        .logo-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--gold);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .logo-text {
+            margin-left: 12px;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 6px black;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+
+        /* -------------------------- HERO ---------------------------- */
+        header {
+            background: url('your-background.jpg') no-repeat center center/cover;
+            height: 95vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Dark overlay */
+        header::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+        }
+
+        .header-content {
+            position: relative;
+            color: white;
+            padding: 20px;
+            max-width: 700px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header-content h1 {
+            font-size: 3.5rem;
+            color: var(--gold);
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .header-content p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+
+        .header-btn {
+            background: var(--gold);
+            padding: 16px 35px;
+            color: var(--navy);
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .header-btn:hover {
+            background: #e0b644;
+        }
+
+        /* -------------------------- SECTIONS ---------------------------- */
+        section {
+            padding: 80px 5%;
+            background: var(--light-bg);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            color: var(--royal-blue);
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #555;
+            margin-bottom: 40px;
+            font-size: 1.2rem;
+        }
+
+        /* -------------------------- GALLERY ---------------------------- */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .gallery-container img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+        }
+
+        .gallery-container img:hover {
+            transform: scale(1.05);
+        }
+
+        /* -------------------------- SERVICES ---------------------------- */
+        .services-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .service-box {
+            background: white;
+            width: 300px;
+            padding: 25px;
+            border-radius: 10px;
+            border-top: 6px solid var(--gold);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+            transition: 0.3s;
+        }
+
+        .service-box:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        .service-box h3 {
+            color: var(--royal-blue);
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+
+        /* -------------------------- CONTACT ---------------------------- */
+        .contact-container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .contact-container input,
+        .contact-container textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 3px solid var(--royal-blue);
+            border-radius: 8px;
+            font-size: 1rem;
+            background: white;
+        }
+
+        .contact-container button {
+            background: var(--royal-blue);
+            color: white;
+            padding: 16px 35px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .contact-container button:hover {
+            background: var(--navy);
+        }
+
+        /* -------------------------- WHATSAPP BUTTON ---------------------------- */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #25d366;
+            padding: 16px;
+            border-radius: 50%;
+            color: white;
+            font-size: 32px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 900;
+            text-decoration: none;
+        }
+
+        /* -------------------------- FOOTER ---------------------------- */
+        footer {
+            background: var(--navy);
+            color: white;
+            padding: 40px 5%;
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--gold);
+        }
+
+        /* -------------------------- RESPONSIVE ---------------------------- */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+                margin-top: 15px;
+            }
+
+            nav ul li {
+                margin: 12px 0;
+            }
+
+            .logo-img {
+                width: 70px;
+                height: 70px;
+            }
+
+            header h1 {
+                font-size: 2.4rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- -------------------------- NAVIGATION ---------------------------- -->
+    <nav>
+        <div
+            style="display:flex; align-items:center;">
+            <img src="3.png" class="logo-img"
+                alt="Company Logo" />
+            <div class="logo-text">The Blessed
+                Egwu Oyo Enterprise</div>
+        </div>
+
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Gallery</a>
+            </li>
+            <li><a href="#services">Services</a>
+            </li>
+            <li><a href="#contact">Contact</a>
+            </li>
+            <a href="soft-ride.html" ...>Soft Ride</a>
+
+        </ul>
+    </nav>
+
+    <!-- -------------------------- HERO ---------------------------- -->
+    <header>
+        <div class="header-content">
+            <h1>Premium Palm Oil Meal Processing
+            </h1>
+            <p>Your trusted partner for Palm
+                Kernel Cake (PKC), palm oil meal,
+                and agro-industrial products
+                nationwide.</p>
+            <a class="header-btn"
+                href="#contact">Contact Us</a>
+        </div>
+    </header>
+
+    <!-- -------------------------- ABOUT ---------------------------- -->
+    <section id="about"
+        style="background:var(--light-bg); padding:100px 5%;">
+        <h2 class="section-title">About Us</h2>
+        <p class="section-subtitle">Quality •
+            Reliability • Professional Service</p>
+    
+        <div
+            style="max-width:1000px; margin:auto; font-size:1.15rem; color:#444; line-height:1.8;">
+    
+            <p
+                style="margin-bottom:25px; text-align:justify;">
+                <strong>Blessed Egwu Oyo Enterprise</strong>
+                is a
+                fast-growing agro-processing company
+                specializing in
+                high-quality <strong>Palm Kernel Oil
+                    (PKO)</strong>
+                production and palm kernel by-product supply
+                in Nigeria.
+                Based in Abakaliki, Ebonyi State, we operate
+                at the
+                center of one of the most active
+                palm-producing regions
+                in West Africa. Our company is committed to
+                transforming
+                raw palm kernels into premium-grade crude palm
+                kernel oil
+                and <strong>Palm Kernel Cake (PKC)</strong>
+                for use by
+                food processors, industrial manufacturers,
+                feed mills,
+                livestock farms, and export buyers across the
+                region.
+            </p>
+            
+            <p
+                style="margin-bottom:25px; text-align:justify;">
+                Through modern extraction technologies,
+                efficient drying
+                systems, and a clean, well-structured
+                processing
+                environment, we ensure all products meet
+                national and
+                international quality specifications. Our
+                skilled
+                workforce and quality-assurance team oversee
+                every stage
+                of production—from kernel sourcing to oil
+                clarification—ensuring consistent purity,
+                optimal yield,
+                and reliable supply throughout the year. We
+                maintain
+                strong partnerships with farmers, aggregators,
+                transporters, and distributors, enabling us to
+                operate a
+                sustainable, transparent, and efficient palm
+                kernel oil
+                value chain.
+            </p>
+
+    
+            <!-- Mission & Vision -->
+            <div style="margin:40px 0;">
+                <h3
+                    style="color:var(--royal-blue); font-size:1.6rem; margin-bottom:10px;">
+                    Our Mission
+                </h3>
+                <p style="text-align:justify;">
+                    To produce high-quality <strong>Palm
+                        Kernel Oil (PKO)</strong>
+                    and palm kernel by-products using modern,
+                    efficient, and
+                    environmentally responsible processing
+                    technologies.
+                    Our mission is to deliver consistent
+                    value, superior product
+                    quality, and reliable year-round supply to
+                    food processors,
+                    manufacturers, feed producers, and
+                    industrial clients across
+                    Nigeria and the global marketplace.
+                </p>
+            </div>
+
+    
+            <div style="margin:40px 0;">
+                <h3
+                    style="color:var(--royal-blue); font-size:1.6rem; margin-bottom:10px;">
+                    Our Vision
+                </h3>
+                <p style="text-align:justify;">
+                    To become the leading and most trusted
+                    provider of
+                    <strong>Palm Kernel Oil (PKO)</strong> and
+                    palm kernel by-products
+                    in Africa, recognized for setting industry
+                    benchmarks in quality,
+                    innovation, and sustainable
+                    agro-industrial practices, while
+                    delivering value to farmers,
+                    manufacturers, and industrial partners.
+                </p>
+            </div>
+
+    
+        <!-- Core Values -->
+        <div style="margin:40px 0;">
+            <h3
+                style="color:var(--royal-blue); font-size:1.6rem; margin-bottom:10px;">
+                Our Core Values
+            </h3>
+            <ul
+                style="list-style:circle; margin-left:25px; color:#444; line-height:1.8;">
+                <li><strong>Integrity:</strong> We operate
+                    transparently and ethically in all
+                    aspects of palm kernel oil production.
+                </li>
+                <li><strong>Quality Commitment:</strong>
+                    We maintain strict quality standards
+                    for <strong>Palm Kernel Oil
+                        (PKO)</strong>, palm kernel cake,
+                    and by-products through continuous
+                    testing and monitoring.</li>
+                <li><strong>Innovation:</strong> We employ
+                    modern extraction, drying, and
+                    processing technologies to maximize
+                    yield and efficiency.</li>
+                <li><strong>Customer Focus:</strong> We
+                    build long-term relationships with
+                    feed mills, manufacturers, and
+                    industrial buyers by prioritizing
+                    satisfaction and reliability.</li>
+                <li><strong>Reliability:</strong>
+                    Consistent supply, timely deliveries,
+                    and dependable logistics form the
+                    backbone of our operations.</li>
+            </ul>
+        </div>
+        
+        <!-- Why Choose Us -->
+        <div style="margin:40px 0;">
+            <h3
+                style="color:var(--royal-blue); font-size:1.6rem; margin-bottom:10px;">
+                Why Choose Us?
+            </h3>
+            <ul
+                style="list-style:circle; margin-left:25px; color:#444; line-height:1.8;">
+                <li><strong>Premium-Grade
+                        Products:</strong> Our PKO, palm
+                    kernel cake, and related by-products
+                    undergo rigorous quality control to
+                    meet industrial standards.</li>
+                <li><strong>Advanced Technology:</strong>
+                    We utilize modern mechanical presses,
+                    dryers, and extraction systems for
+                    maximum efficiency and product
+                    quality.</li>
+                <li><strong>Experienced Team:</strong>
+                    Industry professionals oversee all
+                    stages from procurement to production
+                    and delivery.</li>
+                <li><strong>Reliable Supply
+                        Chain:</strong> Strong
+                    partnerships with local farmers and
+                    collectors ensure consistent
+                    year-round raw material availability.
+                </li>
+                <li><strong>Competitive Pricing:</strong>
+                    We provide high-quality palm kernel
+                    products at fair, transparent rates.
+                </li>
+                <li><strong>Nationwide & Regional
+                        Delivery:</strong> Secure
+                    logistics for industrial buyers across
+                    Nigeria and West Africa.</li>
+            </ul>
+        </div>
+        
+        <!-- Industrial Impact -->
+        <div style="margin:40px 0;">
+            <h3
+                style="color:var(--royal-blue); font-size:1.6rem; margin-bottom:10px;">
+                Our Industry Impact
+            </h3>
+            <p style="text-align:justify;">
+                Blessed Egwu Oyo Enterprise has played a
+                key role in supporting the livestock,
+                poultry, aquaculture, and agro-industrial
+                sectors by providing reliable,
+                high-quality <strong>Palm Kernel
+                    Oil</strong> and by-products.
+                Our products serve feed manufacturers,
+                poultry farms, cattle ranches, and
+                industrial processors, ensuring consistent
+                nutrition, operational efficiency, and
+                supply chain stability.
+                By leveraging modern processing
+                technologies and strong supplier networks,
+                we contribute to the growth and
+                sustainability of Nigeria’s
+                agro-industrial economy.
+            </p>
+        </div>
+
+    </section>
+    
+
+        <!-- -------------------------- BUSINESS PLAN ---------------------------- -->
+        <section id="business-plan"
+            style="background:white; padding:100px 5%;">
+            <h2 class="section-title">Business Plan</h2>
+            <p class="section-subtitle">Palm Kernel Oil
+                Processing (Abakaliki, Ebonyi State,
+                Nigeria)</p>
+        
+            <div
+                style="max-width:1000px; margin:auto; font-size:1.15rem; color:#444; line-height:1.8;">
+        
+                <h3
+                    style="color:var(--royal-blue); margin-bottom:10px;">
+                    Prepared:</h3>
+                <p style="margin-bottom:30px;">October 9,
+                    2025</p>
+        
+                <!-- Executive Summary -->
+                <h3
+                    style="color:var(--royal-blue); font-size:1.6rem; margin-bottom:15px;">
+                    1. Executive Summary</h3>
+        
+                <p><strong>Business:</strong> Processing
+                    palm kernels into crude palm kernel
+                    oil (CPKO) and kernel cake.</p>
+                <p><strong>Company name:</strong> Blessed
+                    Egwu Oyo Enterprise</p>
+                <p><strong>Location:</strong> Abakaliki
+                    (capital of Ebonyi State) — factory &
+                    admin.</p>
+                <p><strong>Raw material sourcing:</strong>
+                    Cross River, Ebonyi, Rivers, Edo and
+                    other producing regions.</p>
+                <p><strong>Target markets:</strong> Local
+                    edible oil wholesalers, soap and
+                    cosmetics manufacturers, animal-feed
+                    producers, regional exporters.</p>
+                <p><strong>Capacity (sample
+                        scenario):</strong> Processing 2
+                    tonnes palm kernel/day → ~270 tonnes
+                    oil/year.</p>
+                <p><strong>Investment required
+                        (sample):</strong> CAPEX ~₦35M;
+                    initial working capital ~₦25M → total
+                    ≈ ₦60M.</p>
+                <p><strong>Key advantage:</strong>
+                    Strategic sourcing from nearby
+                    producing states, low transport times,
+                    strong domestic demand.</p>
+        
+                <hr
+                    style="margin:40px 0; border:0; border-top:2px solid #ddd;">
+        
+                <!-- Assumptions -->
+                <h3
+                    style="color:var(--royal-blue); font-size:1.6rem; margin-bottom:15px;">
+                    2. Assumptions (changeable)</h3>
+        
+                <ul
+                    style="list-style:circle; margin-left:25px; line-height:1.8; color:#444;">
+                    <li><strong>The plant will process 2
+                            tonnes of palm kernels per
+                            day,</strong> operating 300
+                        days/year.</li>
+                    <li><strong>Palm kernel → palm kernel
+                            oil yield: 45%</strong> by
+                        weight of kernels (typical
+                        industrial yield).</li>
+                    <li><strong>Average selling price
+                            (sample):</strong> ₦600,000
+                        per tonne of crude palm kernel oil
+                        (CPKO).
+                        <em>(You may replace with your
+                            market rate.)</em>
+                    </li>
+                    <li><strong>Raw palm kernel purchase
+                            price (sample):</strong>
+                        ₦120,000 per tonne.</li>
+                    <li><strong>Working days per
+                            year:</strong> 300.</li>
+                </ul>
+        
+            </div>
+
+
+
+                        <!-- Products & Revenue Streams -->
+                        <hr
+                            style="margin:40px 0; border:0; border-top:2px solid #ddd;">
+                        <h3
+                            style="color:var(--royal-blue); font-size:1.6rem; margin-bottom:15px;">
+                            3. Products & Revenue Streams
+                        </h3>
+                        
+                        <ul
+                            style="list-style:circle; margin-left:25px; line-height:1.8; color:#444;">
+                            <li><strong>Crude Palm Kernel Oil
+                                    (CPKO):</strong> Main product for
+                                edible and industrial uses.</li>
+                            <li><strong>Palm Kernel Cake / Meal:</strong>
+                                By-product widely used in animal feed and
+                                organic fertilizer production.</li>
+                            <li><strong>Refined Oil (optional):</strong>
+                                Higher margins if you later add
+                                refining/packaging and introduce a retail
+                                brand.</li>
+                            <li><strong>Seed / Charcoal:</strong> Minor
+                                revenue stream from residues if carbonized
+                                or processed further.</li>
+                        </ul>
+                        
+                        
+                        <!-- Market Analysis -->
+                        <hr
+                            style="margin:40px 0; border:0; border-top:2px solid #ddd;">
+                        <h3
+                            style="color:var(--royal-blue); font-size:1.6rem; margin-bottom:15px;">
+                            4. Market Analysis (Summary)
+                        </h3>
+                        
+                        <ul
+                            style="list-style:circle; margin-left:25px; line-height:1.8; color:#444;">
+                            <li><strong>Demand Drivers:</strong>
+                                Population growth, FMCG manufacturing,
+                                soap/cosmetics industry, and rising animal
+                                feed needs.</li>
+                            <li><strong>Local Advantage:</strong>
+                                Proximity to kernel-producing states
+                                reduces freight cost and minimizes
+                                spoilage.</li>
+                            <li><strong>Customers:</strong> Bulk
+                                wholesalers, local FMCG firms, feed mills,
+                                regional traders, and potential exporters.
+                            </li>
+                            <li><strong>Competition:</strong> Ranges from
+                                small-scale crushers to larger palm
+                                processors. Competitive factors include
+                                price, quality consistency, reliability,
+                                and certifications (e.g., NAFDAC, food
+                                safety).</li>
+                            <li><strong>Market Strategy:</strong> Build
+                                direct sourcing contracts with farmers and
+                                kernel collectors in Cross River, Rivers,
+                                Edo, and Ebonyi. Offer reliable offtake,
+                                timely payments, and quality assurance.
+                            </li>
+                        </ul>
+                        
+                        
+                        <!-- Location & Facility -->
+                        <hr
+                            style="margin:40px 0; border:0; border-top:2px solid #ddd;">
+                        <h3
+                            style="color:var(--royal-blue); font-size:1.6rem; margin-bottom:15px;">
+                            5. Location & Facility
+                        </h3>
+                        
+                        <p style="margin-bottom:15px;">
+                            <strong>Site:</strong> Light-industrial plot
+                            near Abakaliki with easy access to major roads
+                            linking raw-material sources.
+                        </p>
+                        
+                        <p><strong>Facility requirements include:</strong>
+                        </p>
+                        <ul
+                            style="list-style:circle; margin-left:25px; line-height:1.8; color:#444;">
+                            <li>Raw material receiving & dry storage
+                                areas.</li>
+                            <li>Kernel cracking and shell–kernel
+                                separation zone.</li>
+                            <li>Kernel drying section (if moisture
+                                reduction is needed).</li>
+                            <li>Oil extraction room — screw press or
+                                solvent extraction setup depending on
+                                scale.</li>
+                            <li>Oil clarification and storage tanks for
+                                CPKO.</li>
+                            <li>Packaging and dispatch unit for bulk
+                                buyers.</li>
+                        </ul>
+
+
+
+                                    <!-- Technology & Equipment -->
+                                    <hr
+                                        style="margin:40px 0; border:0; border-top:2px solid #ddd;">
+                                    <h3
+                                        style="color:var(--royal-blue); font-size:1.6rem; margin-bottom:15px;">
+                                        6. Technology & Equipment (Example List)
+                                    </h3>
+                                    
+                                    <ul
+                                        style="list-style:circle; margin-left:25px; line-height:1.8; color:#444;">
+                                        <li>Mechanical kernel cracker / husker (if
+                                            whole nuts are purchased).</li>
+                                        <li>Oil expeller (mechanical press) — main oil
+                                            extraction machine.</li>
+                                        <li>Clarifier / settling tanks for separating
+                                            oil from water and solids.</li>
+                                        <li>Crude oil storage tanks (stainless or
+                                            food-grade coated).</li>
+                                        <li>Conveyors, dryers, hoppers, and industrial
+                                            weighing scales.</li>
+                                        <li>Packaging station for drums, jerrycans, or
+                                            bulk bags.</li>
+                                        <li>Basic laboratory QA equipment (tests for
+                                            FFAs, moisture, impurities).</li>
+                                        <li>Waste management systems: shell/husk
+                                            handling, effluent settling ponds.</li>
+                                    </ul>
+                                    
+                                    <p style="margin-top:15px;">
+                                        <strong>Estimated CAPEX (sample):</strong>
+                                        ₦25–40 million for a modest plant, depending
+                                        on equipment size,
+                                        new vs used machinery, civil works, electrical
+                                        installation, and commissioning.
+                                    </p>
+                                    
+                                    
+                                    <!-- Supply Chain & Procurement Plan -->
+                                    <hr
+                                        style="margin:40px 0; border:0; border-top:2px solid #ddd;">
+                                    <h3
+                                        style="color:var(--royal-blue); font-size:1.6rem; margin-bottom:15px;">
+                                        7. Supply Chain & Procurement Plan
+                                    </h3>
+                                    
+                                    <ul
+                                        style="list-style:circle; margin-left:25px; line-height:1.8; color:#444;">
+                                        <li><strong>Primary suppliers:</strong> Kernel
+                                            collectors, farmers, and small-scale
+                                            processors in Cross River, Rivers, Edo,
+                                            and Ebonyi.</li>
+                                        <li><strong>Procurement model:</strong> Mix of
+                                            spot purchases and forward contracts
+                                            during peak harvest. Offer incentives,
+                                            training, and aggregation support to
+                                            secure stable supply.</li>
+
+
+
+                                                        <!-- Business Operations Overview -->
+                                                        <hr
+                                                            style="margin:40px 0; border:0; border-top:2px solid #ddd;">
+                                                        <h3
+                                                            style="color:var(--royal-blue); font-size:1.6rem; margin-bottom:15px;">
+                                                            Business Operations Overview
+                                                        </h3>
+                                                        
+                                                        <p style="margin-bottom:10px;">
+                                                            <strong>Maintenance:</strong> Preventive
+                                                            maintenance schedule for presses, dryers,
+                                                            conveyors, and motors.</p>
+                                                        <p style="margin-bottom:20px;">Maintain a
+                                                            spare-parts inventory for fast repairs and
+                                                            reduced downtime.</p>
+                                                        
+                                                        
+                                                        <!-- Organization & Staffing -->
+                                                        <hr
+                                                            style="margin:40px 0; border:0; border-top:2px solid #ddd;">
+                                                        <h3
+                                                            style="color:var(--royal-blue); font-size:1.6rem; margin-bottom:15px;">
+                                                            9. Organization & Staffing (Sample)
+                                                        </h3>
+                                                        
+                                                        <p><strong>Core Management:</strong></p>
+                                                        <ul
+                                                            style="list-style:circle; margin-left:25px; line-height:1.8; color:#444;">
+                                                            <li>CEO / Managing Director</li>
+                                                            <li>Production Manager</li>
+                                                            <li>Procurement Manager</li>
+                                                            <li>Sales & Marketing Manager</li>
+                                                            <li>Finance / Accounts Manager</li>
+                                                        </ul>
+                                                        
+                                                        <p style="margin-top:20px;"><strong>Plant
+                                                                Staff:</strong></p>
+                                                        <ul
+                                                            style="list-style:circle; margin-left:25px; line-height:1.8; color:#444;">
+                                                            <li>Mechanics (2–4 depending on scale)</li>
+                                                            <li>Electricians (1–2)</li>
+                                                            <li>CQ Technician (1)</li>
+                                                            <li>Storekeepers (1–2)</li>
+                                                            <li>Forklift Drivers (1–2)</li>
+                                                            <li>Security Guards (2–4)</li>
+                                                            <li>Cleaners (2–4)</li>
+                                                        </ul>
+                                                        
+                                                        <p style="margin-top:15px;"><strong>Total
+                                                                Staff:</strong> 20–25 depending on
+                                                            capacity and automation level.</p>
+                                                        
+                                                        
+                                                        <!-- Marketing & Sales Strategy -->
+                                                        <hr
+                                                            style="margin:40px 0; border:0; border-top:2px solid #ddd;">
+                                                        <h3
+                                                            style="color:var(--royal-blue); font-size:1.6rem; margin-bottom:15px;">
+                                                            10. Marketing & Sales Strategy
+                                                        </h3>
+                                                        
+                                                        <ul
+                                                            style="list-style:circle; margin-left:25px; line-height:1.8; color:#444;">
+                                                            <li><strong>B2B Sales:</strong> Edible oil
+                                                                millers, animal feed mills, wholesalers,
+                                                                traders.</li>
+                                                            <li><strong>Pricing Strategy:</strong>
+                                                                Competitive per-tonne pricing; bulk
+                                                                discounts for large contracts.</li>
+                                                            <li><strong>Branding:</strong> Packaging,
+                                                                labeling, and NAFDAC/SON compliance for
+                                                                credibility.</li>
+                                                            <li><strong>Sales Channels:</strong> Direct
+                                                                industry sales + distributors in Enugu,
+                                                                Port Harcourt, Benin, Ibadan, Lagos.</li>
+                                                            <li><strong>Digital:</strong> Online B2B
+                                                                platforms, WhatsApp Business, LinkedIn
+                                                                outreach.</li>
+                                                            <li><strong>Sales Tracking:</strong> Maintain
+                                                                customer database, delivery logs, QA lab
+                                                                test records.</li>
+                                                        </ul>
+                                                        
+                                                        
+                                                        <!-- Regulatory & Quality -->
+                                                        <hr
+                                                            style="margin:40px 0; border:0; border-top:2px solid #ddd;">
+                                                        <h3
+                                                            style="color:var(--royal-blue); font-size:1.6rem; margin-bottom:15px;">
+                                                            11. Regulatory & Quality
+                                                        </h3>
+                                                        
+                                                        <ul
+                                                            style="list-style:circle; margin-left:25px; line-height:1.8; color:#444;">
+                                                            <li><strong>NAFDAC registration:</strong>
+                                                                Required for refined oil intended for
+                                                                human consumption.</li>
+                                                            <li><strong>SON registration:</strong>
+                                                                Mandatory for animal feed products (PKC).
+                                                            </li>
+                                                            <li><strong>Quality Control:</strong> Test
+                                                                moisture, oil content, and free fatty
+                                                                acids (FFA).</li>
+                                                            <li><strong>Lab Testing:</strong> Routine
+                                                                checks for refined oil before retail
+                                                                distribution.</li>
+                                                            <li><strong>Customer Feedback:</strong> Used
+                                                                to meet buyer specifications and improve
+                                                                consistency.</li>
+                                                        </ul>
+                                                        
+                                                        
+                                                        <!-- Risk Analysis & Mitigation -->
+                                                        <hr
+                                                            style="margin:40px 0; border:0; border-top:2px solid #ddd;">
+                                                        <h3
+                                                            style="color:var(--royal-blue); font-size:1.6rem; margin-bottom:15px;">
+                                                            12. Risk Analysis & Mitigations
+                                                        </h3>
+                                                        
+                                                        <ul
+                                                            style="list-style:circle; margin-left:25px; line-height:1.8; color:#444;">
+                                                            <li><strong>Raw Material Price
+                                                                    Volatility:</strong> Use
+                                                                forward-purchase agreements and risk
+                                                                diversification across states.</li>
+                                                            <li><strong>Equipment breakdown:</strong>
+                                                                Preventive maintenance + spare parts
+                                                                inventory.</li>
+                                                            <li><strong>Market competition:</strong> Focus
+                                                                on consistent quality, fast delivery, and
+                                                                long-term supply contracts.</li>
+                                                            <li><strong>Regulatory delays:</strong> Early
+                                                                submission for permits and compliance
+                                                                documents.</li>
+                                                        </ul>
+                                                        
+                                                        
+                                                        <!-- Financial Snapshot -->
+                                                        <hr
+                                                            style="margin:40px 0; border:0; border-top:2px solid #ddd;">
+                                                        <h3
+                                                            style="color:var(--royal-blue); font-size:1.6rem; margin-bottom:15px;">
+                                                            13. Financial Snapshot – Sample Scenario
+                                                            (Conservative)
+                                                        </h3>
+                                                        
+                                                        <p><strong>Assumptions:</strong></p>
+                                                        <ul
+                                                            style="list-style:circle; margin-left:25px; line-height:1.8; color:#444;">
+                                                            <li>1 plant, 1 processing line</li>
+                                                            <li>6,000 tonnes/year throughput</li>
+                                                            <li>Initial investment: ₦60,000,000 (CAPEX
+                                                                ₦35M + WC ₦25M)</li>
+                                                            <li>Sales: ₦120,000 per tonne</li>
+                                                            <li>Cost: ₦47,000 per tonne</li>
+                                                        </ul>
+                                                        
+                                                        <p><strong>Calculations:</strong></p>
+                                                        <ul
+                                                            style="list-style:circle; margin-left:25px; line-height:1.8; color:#444;">
+                                                            <li><strong>Revenue:</strong>
+                                                                ₦720,000,000/year</li>
+                                                            <li><strong>Total Cost:</strong>
+                                                                ₦282,000,000/year</li>
+                                                            <li><strong>Operating Margin:</strong>
+                                                                ₦438,000,000/year</li>
+                                                            <li><strong>Net Margin (after
+                                                                    tax/interest/depreciation):</strong>
+                                                                ~₦47,000,000/year</li>
+                                                            <li><strong>Payback Period:</strong> ~1.27
+                                                                years</li>
+                                                        </ul>
+                                                        
+                                                        <p style="margin-top:10px;">*Note: Replace sample
+                                                            inputs with local vendor quotes and market
+                                                            pricing.*</p>
+                                                        
+                                                        
+                                                        <!-- Funding & Use of Funds -->
+                                                        <hr
+                                                            style="margin:40px 0; border:0; border-top:2px solid #ddd;">
+                                                        <h3
+                                                            style="color:var(--royal-blue); font-size:1.6rem; margin-bottom:15px;">
+                                                            14. Funding & Use of Funds (Sample)
+                                                        </h3>
+                                                        
+                                                        <p><strong>Total Required:</strong> ₦60,000,000
+                                                        </p>
+                                                        
+                                                        <p><strong>Use of Funds:</strong></p>
+                                                        <ul
+                                                            style="list-style:circle; margin-left:25px; line-height:1.8; color:#444;">
+                                                            <li>Equipment & Installation: ₦25–35M</li>
+                                                            <li>Building & Civil Works: ₦20–25M</li>
+                                                            <li>Working Capital: ₦5–10M</li>
+                                                            <li>Licensing, QA Lab, Contingencies: ₦2–3M
+                                                            </li>
+                                                        </ul>
+                                                        
+                                                        <p><strong>Funding Options:</strong> Equity,
+                                                            commercial loans, partnerships, impact
+                                                            investors, DFIs.</p>
+                                                        
+                                                        
+                                                        <!-- Implementation Timeline -->
+                                                        <hr
+                                                            style="margin:40px 0; border:0; border-top:2px solid #ddd;">
+                                                        <h3
+                                                            style="color:var(--royal-blue); font-size:1.6rem; margin-bottom:15px;">
+                                                            15. Implementation Timeline (6–9 Months)
+                                                        </h3>
+                                                        
+                                                        <ul
+                                                            style="list-style:circle; margin-left:25px; line-height:1.8; color:#444;">
+                                                            <li><strong>Month 1–2:</strong> Feasibility
+                                                                study, funding confirmation, early
+                                                                recruitment.</li>
+                                                            <li><strong>Month 2–3:</strong> Land/lease
+                                                                acquisition, permits, environmental
+                                                                compliance.</li>
+                                                            <li><strong>Month 3–4:</strong>
+                                                                Purchase/install equipment; build civil
+                                                                structures.</li>
+                                                            <li><strong>Month 3–5:</strong> Staff
+                                                                recruitment/training; supply contracts.
+                                                            </li>
+                                                            <li><strong>Month 4–6:</strong> Test batches;
+                                                                quality validation.</li>
+                                                            <li><strong>Month 6–9:</strong> Full
+                                                                operations; scale production; consider
+                                                                refining expansion.</li>
+                                                        </ul>
+                                                        
+                                                        
+                                                        <!-- KPIs -->
+                                                        <hr
+                                                            style="margin:40px 0; border:0; border-top:2px solid #ddd;">
+                                                        <h3
+                                                            style="color:var(--royal-blue); font-size:1.6rem; margin-bottom:15px;">
+                                                            16. Key Performance Indicators (KPIs)
+                                                        </h3>
+                                                        
+                                                        <ul
+                                                            style="list-style:circle; margin-left:25px; line-height:1.8; color:#444;">
+                                                            <li>Yield efficiency (target 45%)</li>
+                                                            <li>Raw material cost per tonne</li>
+                                                            <li>Inventory turnover (days)</li>
+                                                            <li>Monthly sales (volume & value)</li>
+                                                            <li>Gross margin & net margin %</li>
+                                                            <li>On-time delivery performance</li>
+                                                        </ul>
+                                                        
+                                                        
+                                                        <!-- Next Steps -->
+                                                        <hr
+                                                            style="margin:40px 0; border:0; border-top:2px solid #ddd;">
+                                                        <h3
+                                                            style="color:var(--royal-blue); font-size:1.6rem; margin-bottom:15px;">
+                                                            17. Next Steps (Practical)
+                                                        </h3>
+                                                        
+                                                        <ul
+                                                            style="list-style:circle; margin-left:25px; line-height:1.8; color:#444;">
+                                                            <li>Validate kernel prices from Cross River,
+                                                                Rivers, Edo, Ebonyi.</li>
+                                                            <li>Request equipment quotes (new vs used);
+                                                                confirm warranty terms.</li>
+                                                            <li>Get utility (power/water) quotes;
+                                                                negotiate offtake terms.</li>
+                                                            <li>Develop full financial model (local
+                                                                prices, taxes, interest rates).</li>
+                                                            <li>Apply for permits (CAC, NAFDAC/SON, LGA,
+                                                                environmental approvals).</li>
+                                                        </ul>
+                                                        
+                                                        
+                                                        <!-- Investor Proposal -->
+                                                        <hr
+                                                            style="margin:40px 0; border:0; border-top:2px solid #ddd;">
+                                                        <h3
+                                                            style="color:var(--royal-blue); font-size:1.6rem; margin-bottom:15px;">
+                                                            Investor Proposal / Executive Outline
+                                                        </h3>
+                                                        
+                                                        <p>
+                                                            <strong>To:</strong> [Investor Name] <br>
+                                                            <strong>From:</strong> Blessed Group
+                                                            Enterprise <br>
+                                                            <strong>Subject:</strong> Investment Proposal
+                                                            & Executive Overview
+                                                        </p>
+                                                        
+                                                        <p style="margin-top:15px;">
+                                                            Blessed Group Enterprise seeks an investment
+                                                            of <strong>₦60,000,000</strong>
+                                                            to establish a palm kernel oil processing
+                                                            plant in Abakaliki, Ebonyi State.
+                                                            The plant will process palm kernels into crude
+                                                            palm kernel oil (CPKO) and palm kernel cake
+                                                            (PKC),
+                                                            with a capacity of <strong>10
+                                                                tons/day</strong>, operating 300
+                                                            days/year.
+                                                        </p>
+                                                        
+                                                        <p>
+                                                            Funds will cover land, machinery,
+                                                            installation, permits, and working capital.
+                                                            Products will be sold to industrial buyers
+                                                            across Nigeria.
+                                                        </p>
+                                                        
+                                                        <p style="margin-top:10px;">
+                                                            <strong>Expected Payback:</strong> ~2.5 years
+                                                            <br>
+                                                            <strong>IRR:</strong> ~35% <br>
+                                                            Detailed financial statements available upon
+                                                            request.
+                                                        </p>
+                                                        
+                                                        <p style="margin-top:15px;">
+                                                            <strong>Blessed Group Enterprise</strong> <br>
+                                                            <strong>Managing Director</strong> <br>
+                                                            Abakaliki, Ebonyi State
+                                                        </p>
+
+
+        </section>
+
+
+    <!-- -------------------------- IMAGE GALLERY ---------------------------- -->
+    <section id="gallery">
+        <h2 class="section-title">Image Gallery
+        </h2>
+        <p class="section-subtitle">Our
+            facilities, products & operations</p>
+
+        <div class="gallery-container">
+            <img src="download 3.jpeg"
+                alt="Gallery Image 1">
+            <img src="download 4.jpeg"
+                alt="Gallery Image 2">
+            <img src="download 5.jpeg"
+                alt="Gallery Image 3">
+            <img src="download.jpeg"
+                alt="Gallery Image 4">
+            <img src="images 1.jpeg"
+                alt="Gallery Image 5">
+            <img src="images 2.jpeg"
+                alt="Gallery Image 6">
+            <img src="wwww.jpeg" alt="Gallery Image 7">
+            <img src="22.jpeg" alt="Gallery Image 8">
+            <img src="222.jpeg" alt="Gallery Image 9">
+            <img src="111.jpeg" alt="Gallery Image 10">
+            <img src="1111.jpeg" alt="Gallery Image 11">
+            <img src="1313.webp" alt="Gallery Image 12">
+            <img src="4444.jpeg" alt="Gallery Image 13">
+            <img src="5555.jpeg" alt="Gallery Image 14">
+            <img src="q.jpg" alt="Gallery Image 15">
+            <img src="qq.jpeg" alt="Gallery Image 16">
+            <img src="w.webp" alt="Gallery Image 7">
+            <img src="ww.jpeg" alt="Gallery Image 8">
+            
+        </div>
+    </section>
+
+    <!-- -------------------------- SERVICES ---------------------------- -->
+    <section id="services">
+        <h2 class="section-title">Our Services
+        </h2>
+        <p class="section-subtitle">
+            Industry-standard production and
+            supply</p>
+
+        <div class="services-container">
+            <div class="service-box">
+                <h3>Palm Oil Meal Processing</h3>
+                <p>High-quality palm oil meal
+                    produced with advanced
+                    extraction technology.</p>
+            </div>
+
+            <div class="service-box">
+                <h3>PKC Distribution</h3>
+                <p>Bulk supply of palm kernel cake
+                    for feed mills and industries.
+                </p>
+            </div>
+
+            <div class="service-box">
+                <h3>Agro Packaging</h3>
+                <p>Customized packaging solutions
+                    for wholesalers and exporters.
+                </p>
+            </div>
+
+            <div class="service-box">
+                <h3>Bulk Orders</h3>
+                <p>Large-scale processing and
+                    continuous supply for
+                    industrial clients.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- -------------------------- CONTACT ---------------------------- -->
+    <section id="contact"
+        style="background:var(--light-bg); padding:100px 5%;">
+        <h2 class="section-title">Contact Us</h2>
+        <p class="section-subtitle">We respond quickly
+            • We're here to assist you</p>
+    
+        <div style="max-width:900px; margin:auto;">
+    
+            <!-- Customer Service Info -->
+            <div
+                style="text-align:center; margin-bottom:40px; font-size:1.15rem; color:#333;">
+                <p style="margin-bottom:10px;">
+                    📞 <strong>Customer Service
+                        Phone:</strong> +234 08138463039
+                </p>
+                <p>
+                    ✉️ <strong>Email Support:</strong>
+                    support@blessedegwuoyo@gmail.com
+                </p>
+            </div>
+    
+            <!-- Contact Form -->
+            <div class="contact-container"
+                style="margin-top:20px;">
+                <input type="text"
+                    placeholder="Your Name">
+                <input type="email"
+                    placeholder="Email Address">
+                <input type="text"
+                    placeholder="Phone Number">
+                <textarea rows="5"
+                    placeholder="Your Message"></textarea>
+                <button>Send Message</button>
+            </div>
+    
+        </div>
+    </section>
+    
+
+    <!-- -------------------------- WHATSAPP BUTTON ---------------------------- -->
+    <a href="https://wa.me/2340000000000"
+        target="_blank"
+        class="whatsapp-btn">💬</a>
+
+    <!-- -------------------------- FOOTER ---------------------------- -->
+    <footer
+        style="background:#f9f9f9; padding:50px 5%; text-align:center; color:#333;">
+    
+        <!-- Company Info -->
+        <h3
+            style="color:var(--royal-blue); margin-bottom:10px;">
+            The Blessed Egwu Oyo Enterprise</h3>
+        <p style="margin-bottom:5px;">Premium Palm Oil
+            Meal & Agro-Industrial Supply</p>
+    
+        <!-- Contact Info -->
+        <p style="margin-bottom:5px;">
+            📞 Customer Service: +234 8138463039
+        </p>
+        <p style="margin-bottom:20px;">
+            ✉️ Email:
+            support@blessedegwuoyo@gmail.com
+        </p>
+    
+        <!-- Partner Link -->
+        <p style="margin-bottom:20px;">
+            Our Transport Partner:
+            <a href="soft-ride.html" target="_blank"
+                style="color:var(--royal-blue); font-weight:bold; text-decoration:underline;">
+                Soft Ride
+            </a>
+        </p>
+    
+        <!-- Copyright -->
+        <p style="font-size:0.9rem; color:#0a0a0a;">
+            &copy; 2025 The Blessed Egwu Oyo
+            Enterprise. All rights reserved.
+        </p>
+    </footer>
+    
+
+</body>
+
+</html>
